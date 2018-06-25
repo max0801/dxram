@@ -1345,6 +1345,22 @@ public final class MemoryManagerComponent extends AbstractDXRAMComponent<MemoryM
     }
 
     /**
+     * Returns the specified chunk's size.
+     *
+     * @param p_chunkId The chunk's id.
+     * @return The chunk's size in bytes.
+     */
+    public int getSize(final long p_chunkId) {
+        try {
+            long address = m_cidTable.get(p_chunkId);
+            return m_rawMemory.getSizeBlock(address);
+        } catch (final MemoryRuntimeException e) {
+            handleMemDumpOnError(e, true);
+            throw e;
+        }
+    }
+
+    /**
      * Returns whether this Chunk was migrated here or not
      *
      * @param p_chunkID
