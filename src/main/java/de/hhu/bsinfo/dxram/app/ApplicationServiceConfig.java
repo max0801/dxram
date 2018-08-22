@@ -4,6 +4,11 @@ import com.google.gson.annotations.Expose;
 import de.hhu.bsinfo.dxram.engine.AbstractDXRAMServiceConfig;
 import de.hhu.bsinfo.dxram.engine.DXRAMContext;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Config for the ApplicationService
  *
@@ -12,10 +17,10 @@ import de.hhu.bsinfo.dxram.engine.DXRAMContext;
 public class ApplicationServiceConfig extends AbstractDXRAMServiceConfig {
 
     @Expose
-    private boolean m_autoStart = false;
+    private List<String> m_autoStart = Arrays.asList("TerminalServer");
 
-    public boolean isAutostartEnabled() {
-        return m_autoStart;
+    public boolean isAutostartEnabled(String p_name) {
+        return m_autoStart.contains(p_name);
     }
 
     /**
