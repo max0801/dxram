@@ -17,10 +17,10 @@ import java.util.List;
 public class ApplicationServiceConfig extends AbstractDXRAMServiceConfig {
 
     @Expose
-    private List<String> m_autoStart = Arrays.asList("TerminalServer");
+    private List<String> m_autoStart = Arrays.asList("de.hhu.bsinfo.dxterm.server.TerminalServerApplication");
 
-    public boolean isAutostartEnabled(String p_name) {
-        return m_autoStart.contains(p_name);
+    public List<String> getAutoStartApps() {
+        return m_autoStart;
     }
 
     /**

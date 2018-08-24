@@ -83,6 +83,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 dependencies {
     implementation fileTree(dir: 'lib', include: ['*.jar'])
 
+    api 'commons-cli:commons-cli:1.4'
     api 'de.hhu.bsinfo:dxnet:0.5.0-SNAPSHOT'
     api 'de.hhu.bsinfo:dxmon:0.2.0-SNAPSHOT'
     nativeApi 'de.hhu.bsinfo:dxutils:0.5.0-SNAPSHOT'
